@@ -1,5 +1,6 @@
 from django.shortcuts import render
 
+
 def phrase(request):
     return render(
         request,
