@@ -1,8 +1,7 @@
 from django.shortcuts import render
 
-
-def index(request):
+def phrase(request):
     return render(
         request,
-        'diary/index.html',
+        'single_pages/phrase.html'
     )
