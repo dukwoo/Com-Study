@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="kor">
+<head>
+  <meta charset="UTF-8">
+  <title>HOME</title>
+
+  <!--title-logo-image-->
+  <link rel="shortcut icon" type="text/css" href="{% static 'comstudy/titleimg.png' %}">
+  <link rel="appel-touch-icon-precomposed" href="{% static 'comstudy/titleimg.png' %}">
+
+  <!--bootstrap&css-->
+  <link rel="stylesheet" href="{% static 'single_pages/bootstrap/bootstrap.min.css' %}" media="screen">
+  <link rel="stylesheet" href="{% static 'single_pages/css/today_word.css' %}" media="screen">
+
+  <!--구글 글씨체 적용-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+
+  <!--font-aweasome-->
+  <script src="https://kit.fontawesome.com/4352f6a6dc.js" crossorigin="anonymous"></script>
+  
+  <!--font-애니메이션-->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap');
+
+    .waviy {
+      padding-top: 50px;
+      position: relative;
+      -webkit-box-reflect: below -20px linear-gradient(transparent, rgba(0,0,0,.2));
+      font-size: 60px;
+    }
+
+    .waviy span {
+      position: relative;
+    display: inline-block;
+    color: #fff;
+    text-transform: uppercase;
+    animation: waviy 4s infinite;
+    animation-delay: calc(.1s * var(--i));
+    }
+
+@keyframes waviy {
+  0%,40%,100% {
+    transform: translateY(0)
+  }
+  20% {
+    transform: translateY(-20px)
+  }
+}
+  </style>
+</head>
+<body>
+
+  <!--navbar-->
+  {% include 'single_pages/navbar.html' %}
+
+  {% block main_area %}
+
+  <div style="background-image: url('{% static 'single_pages\images\낮3.gif' %}');
+  margin-left: 320px; margin-right: 320px; height: 903px; color: ivory;"> <!--이부분 움짤 경로 지정 안됨-->
+    <center>
+    <div class="waviy">
+      <span style="--i:1">오</span>
+      <span style="--i:2">늘</span>
+      <span style="--i:3">의</span>
+      <span style="--i:4">하</span>
+      <span style="--i:5">루</span>
+      <span style="--i:6">는</span>
+      <span style="--i:7">어</span>
+      <span style="--i:8">떠</span>
+      <span style="--i:9">셨</span>
+      <span style="--i:10">나</span>
+      <span style="--i:11">요</span>
+      <span style="--i:12">?</span>
+    </div>
+    </center>
+    <div style="padding-top:600px;">
+      <center>
+        <button type="button" class="btn btn-dark" style="height: 60px; width: 300px;">로그인</button>
+        <button type="button" class="btn btn-dark" style="height: 60px; width: 300px;">회원가입</button>
+      </center>
+    </div>
+
+  </div>
+
+
+  <div style="margin-left: 320px; margin-right: 320px; background-color: #1B768E;">
+    <div style="text-align: center; font-size: 50px; padding-top: 80px;"><span style="background-color: white;"> 서비스 소개 </span></div>
+    <div style="font-size: 20px; height: 300px; margin-top: 40px; text-align: left; margin-top: 70px; margin-left: 70px; margin-right: 70px;">
+      이 서비스는 간단하게 말하면 ‘고민상담 챗봇을 통한 일기작성’이다.
+      회원가입 후, 자신의 계정으로 로그인을 하면 마이페이지와 고민상담 및 일기 쓰기(챗봇) 서비스를 사용할 수 있다. 
+      일기가 작성완료되면 해당 일기는 데이터베이스에 저장되어 일기 목록 페이지에서 지금까지 작성했던 일기를 모아볼 수 있다. 
+      일기 상세 페이지에서는 추가할 내용이나 수정할 부분이 있을 것을 고려하여 일기 수정이 가능하다. 
+      또한, 최근 유행하고 있는 ‘다이어리 꾸미기’ 기능을 추가하여 사용자들이 자신의 개성을 드러내고 SNS에 공유하거나 소장이 가능하도록 인쇄할 수 있다. 
+      해당 서비스는 사람들의 우울감 극복, 힐링에 중점을 둔 서비스이기에 힐링 글귀를 랜덤으로 뽑을 수 있는 포춘쿠키 서비스 또한 존재한다.
+    </div>
+    <div style="text-align: center; font-size: 50px;"><span style="background-color: white;"> 개발팀 이야기 </span></div>
+    <div style="font-size: 20px; height: 300px; text-align: left; margin: 70px;">
+      우울증 증상 중에는 무기력함과 의욕 상실이 있습니다.
+      무기력은 단지 아무것도 하지 않는 것이 아니라, 몸은 아무것도 못하는데 마음은 쉼이 없는 것입니다.
+      이런 증상을 가진 사람들은 이를 극복하는 방법으로 스스로에게 관심을 가져야 한다고 생각했습니다.
+      해당 방법 중 하나로는 일기 작성이 있습니다. 매일 하루하루를 기록하다보면 자신에 대해 더 잘 파악할 수 있죠.
+      그러나 무기력을 호소하는 사람들이 매일 일기를 꾸준히 작성하는 것은 쉽지 않습니다.
+      우리는 이러한 번거로움을 해소하며 일기를 작성할 수 있는 서비스로 챗봇 기능을 떠올렸습니다.
+      챗봇 기능을 사용하면 자연스러운 대화를 할 수 있기 때문에 일기를 써야한다는 부담을 덜어줄 수 있습니다.
+      또한, 누군가와 대화한다는 느낌을 줘서 심리적 안정감을 가져다 줄 수 있습니다.
+      저희는 이를 통해 사용자들이 그날의 하루를 뒤돌아보고, 스스로를 더 잘 파악할 수 있는 기회를 마련해드리기 위해 기획하게 되었습니다. 
+    </div>
+  
+  </div>
+
+  <div style="margin-left: 320px; margin-right: 320px;">
+    <div style="text-align: center; font-size: 50px; padding-top: 80px; margin-bottom: 150px;">캐릭터 소개</div>
+
+    <div style="height: 600px; margin-top: 60px; text-align: left; margin-left: 40px;">
+      <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FCYktu%2FbtrJjNp5Bha%2FsRR9wkDL1eZDkDt15pgu0k%2Fimg.jpg" alt="수달"
+      style="box-shadow:5px 5px 10px grey;">
+      <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbT0P1k%2FbtrJvlGAg2y%2FR1dgkJKGLxjqknzXV2qa80%2Fimg.png" alt="수달말풍선" style="margin-left: 27px;">
+    </div>
+  
+    <div style="height: 600px; margin-top: 10px; text-align: right; padding-right: 40px;">
+      <span>너굴</span>
+      <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FTVNQ2%2FbtrJlyTuosw%2F7fvfrYh9kiZSFFMn9GtMV0%2Fimg.jpg" alt="너굴" style="box-shadow:5px 5px 10px grey;">
+    </div>
+  
+    <div style="height: 600px; margin-top: 40px; text-align: left; margin-left: 40px;">
+      <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FdFBfQa%2FbtrJlHweek0%2FhaIuDOoagNIPgFqPdrj7sk%2Fimg.jpg" alt="원숭" style="box-shadow:5px 5px 10px grey;">
+      <span>원숭</span>
+    </div>
+  
+    <div style="height: 600px; margin-top: 10px; text-align: right; padding-right: 40px; margin-bottom: 100px;">
+      <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbbJSK4%2FbtrJuTcMG5V%2FykXASqyG5USF9k52Ws0Yo0%2Fimg.png" alt="어흥말풍선" style="margin-right: 27px;">
+      <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fb1xjLL%2FbtrJikWj9n9%2FeuNodOxRkqOhyf1XmXcPz1%2Fimg.jpg" alt="어흥" style="box-shadow:5px 5px 10px grey;">
+    </div>
+  </div>
+  
+
+  {% endblock %}
+
+  <div class="fixed-bottom">
+    {% include 'single_pages/footer.html' %}
+  </div>
+
+  <!--bootstrap.js-->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+
+  <!--darkmode-->
+  <script>
+    let flag = false; //var 안쓰고, let, const ?
+    const head = document.getElementsByTagName('head')[0]; //head가 여러 개
+
+    const dark_css = document.createElement('link'); //만든 후에 부모객체에 추가해야만 나타남.
+    dark_css.rel = 'stylesheet';
+    dark_css.type = 'text/css';
+    dark_css.href = '/static/single_pages/css/darkmode.css'; //스타일 파일 이름. '/' 경로를 의미.
+
+    const user =  document.getElementById('user');
+    const nav = document.getElementById('nav');
+    const foot = document.getElementById('foot');
+    const fText = document.getElementById('footText');
+
+    let currentTime = new Date();
+
+    // 함수 생성.
+    const goDark = () => {
+        flag = true; //여기선 true, 여기 밖에선 false 로
+        head.appendChild(dark_css); //head 부모 객체에 link 자식 객체 추가.
+
+        user.style.color = "white";
+
+        nav.classList.replace('bg-white', 'bg-dark');
+        nav.classList.replace('navbar-light', 'navbar-dark');
+
+        foot.classList.replace('bg-white', 'bg-dark');
+        fText.classList.replace('text-dark','text-white');
+    }
+
+    const goLight = () => {
+        flag = false;
+        if (head.lastChild === dark_css) {
+            head.removeChild(dark_css);
+        }
+
+        user.style.color = "black";
+
+        nav.classList.replace('bg-dark', 'bg-white');
+        nav.classList.replace('navbar-dark', 'navbar-light');
+
+        foot.classList.replace('bg-dark', 'bg-white');
+        fText.classList.replace('text-white','text-dark');
+    }
+
+    const isDarkMode = () => {
+        (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? goDark() : goLight();
+        // 조건 연산 => 조건문 ? true일 경우 실행 : false일 경우 실행.
+    }
+    
+    if (currentTime.getHours==22){
+      flag = true
+    }
+
+    const switchMode = () => flag ? goLight() : goDark();
+
+
+  </script>
+
+</body>
+</html>
