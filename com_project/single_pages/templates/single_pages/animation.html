@@ -1,0 +1,32 @@
+{% load static %}
+
+<script>
+        //사자: #F7B68E 원숭이: #F1D78D 수달: #FFC5C4 너구리: #B69380
+
+        window.onload = function () {
+            //너구리가 말하는 이벤트
+            let count = 0;
+            let image = document.getElementById("nuguri");
+            let frames = ["{% static 'single_pages/images/너구리.png' %}", "{% static 'single_pages/images/너구리말.png' %}"];
+
+            setInterval (function () {
+                image.src = frames[count = count%frames.length];
+                count = count + 1;}, 500
+            );
+
+            let foods = document.getElementsByClassName("food");
+
+            //food 하나씩 그림자 지는 이벤트
+            for (let i=0; i<foods.length; i++) {
+                foods[i].onmouseover = function (){
+                    this.style.filter = "drop-shadow(5px 5px 5px gold)";
+                }
+            }
+
+            for (let i=0; i<foods.length; i++) {
+                foods[i].onmouseout = function (){
+                    this.style.filter = "none";
+                }
+            }
+        }
+    </script>

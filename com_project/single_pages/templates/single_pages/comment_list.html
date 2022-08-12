@@ -1,0 +1,97 @@
+{% extends 'single_pages/base.html' %}
+{% load static %}
+
+{% block tw_script %}
+    <!-- 동물들 움직이도록 설정 -->
+    {% include 'single_pages/animation.html' %}
+{% endblock %}
+
+{% block main_area %}
+<section id="today_list">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-7" style="text-align:center; padding:150px 0">
+                <h4>
+                    안녕 난 너구리 라고해<br>
+                    너가 지금 먹고 싶은 음식을 하나 골라봐 <br>
+                    음식을 고르면 너에게 맞는 명언을 하나 말해 줄거야 <br>
+                    하루에 한 번씩 매일 가능하니까 힘들 때마다 보러 와줘 !
+                </h4>
+            </div>
+            <div class="col-lg-5">
+                <img id="nuguri" src="{% static 'single_pages/images/너구리.png' %}"
+                     width="400px" height="400px">
+            </div>
+        </div>
+
+        <div class="row mb-5 text-center">
+            <!--고기-->
+            <div class="col-lg">
+                <a class="btn_food" onclick="javascript:meat()">
+                    <img class="food" src="{% static 'single_pages/images/고기.png' %}"
+                         width="130px" height="130px">
+                </a>
+            </div>
+
+            <!--물고기-->
+            <div class="col-lg">
+                <a class="btn_food" onclick="javascript:fish()">
+                    <img class="food" src="{% static 'single_pages/images/물고기.png' %}"
+                         width="130px" height="130px">
+                </a>
+            </div>
+
+            <!--사과-->
+            <div class="col-lg">
+                <a class="btn_food" onclick="javascript:apple()">
+                    <img class="food" src="{% static 'single_pages/images/사과.png' %}"
+                        width="130px" height="130px">
+                </a>
+            </div>
+
+            <!--바나나-->
+            <div class="col-lg">
+                <a class="btn_food" onclick="javascript:banana()">
+                    <img class="food" src="{% static 'single_pages/images/바나나.png' %}"
+                        width="130px" height="130px">
+                </a>
+            </div>
+
+            <!--조개-->
+            <div class="col-lg">
+                <a class="btn_food" onclick="javascript:clam()">
+                    <img class="food" src="{% static 'single_pages/images/조개.png' %}"
+                        width="130px" height="130px">
+                </a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!--음식에 맞는 동물들 나오도록-->
+<section class="foods" id="today_detail" style="display:none;">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-7" style="text-align:center; padding:150px 0">
+                <h3 id="detail"> {{comment_001.detail}} </h3>
+                <br>
+                <h4 id="title"> - {{comment_001.title}} </h4>
+            </div>
+            <div class="col-lg-5">
+                <img id=animal src="#" width="400px" height="400px">
+            </div>
+        </div>
+    </div>
+</section>
+
+<div id="footer">
+    {% include 'single_pages/footer.html' %}
+</div>
+
+{% endblock %}
+
+{% block tw_js %}
+    <!-- 오늘의 하루 메시지 나오도록 설정 -->
+    {% include 'single_pages/today_word.html' %}
+{% endblock %}
