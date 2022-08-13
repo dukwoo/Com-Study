@@ -1,6 +1,10 @@
 {% extends 'single_pages/base.html' %}
 {% load static %}
 
+{% block c_title %}
+    <title>오늘의 글귀</title>
+{% endblock %}
+
 {% block tw_script %}
     <!-- 동물들 움직이도록 설정 -->
     {% include 'single_pages/animation.html' %}

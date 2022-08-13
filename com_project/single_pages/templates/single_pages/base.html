@@ -3,7 +3,7 @@
 <html lang="kor">
 <head>
   <meta charset="UTF-8">
-  <title>오늘의 글귀</title>
+  {% block c_title %} {% endblock %}
 
   <!--url-->
   <!--<meta name="author" content="BBangdang">
@@ -65,6 +65,9 @@
     dark_css.type = 'text/css';
     dark_css.href = '/static/single_pages/css/darkmode.css'; //스타일 파일 이름. '/' 경로를 의미.
 
+    /* landing */
+    const back = document.getElementById('back_img');
+
     /* list */
     const user =  document.getElementById('user');
     const nav = document.getElementById('nav');
@@ -79,6 +82,10 @@
         flag = true; //여기선 true, 여기 밖에선 false 로
         head.appendChild(dark_css); //head 부모 객체에 link 자식 객체 추가.
 
+        /* landing */
+        back.style.backgroundImage = "url('{% static 'single_pages\images\밤3.gif' %}')"
+
+        /* today_word */
         user.style.color = "white";
         for (let i=0; i<foods.length; i++) {
           foods[i].style.color = "white";
@@ -97,6 +104,10 @@
             head.removeChild(dark_css);
         }
 
+        /* landing */
+        back.style.backgroundImage = "url('{% static 'single_pages\images\낮3.gif' %}')"
+
+        /* today_word */
         user.style.color = "black";
         for (let i=0; i<foods.length; i++) {
           foods[i].style.color = "black";

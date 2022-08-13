@@ -31,39 +31,9 @@ def today_word(request):
     )
 
 
-'''
-def today_word(request):
-    comments = Comment.objects.all()
-
-    count = 0 #comments 개수
-    num_array = []
-
-    for comment in comments:
-        count += 1
-
-    print(count)
-
-    for i in range(0,5,1):
-        num = random.randrange(1, count)
-        num_array.append(num)
-
-        print(num_array[i])
-
-    comment_001 = Comment.objects.get(id=int(num_array[0]))
-    comment_002 = Comment.objects.get(id=int(num_array[1]))
-    comment_003 = Comment.objects.get(id=int(num_array[2]))
-    comment_004 = Comment.objects.get(id=int(num_array[3]))
-    comment_005 = Comment.objects.get(id=int(num_array[4]))
+def landing(request):
 
     return render(
         request,
-        'single_pages/comment_list.html',
-        {
-            'comment_001': comment_001,
-            'comment_002': comment_002,
-            'comment_003': comment_003,
-            'comment_004': comment_004,
-            'comment_005': comment_005,
-        }
+        'single_pages/landing.html',
     )
-'''
