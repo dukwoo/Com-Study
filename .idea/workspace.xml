@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="a8c6224f-ed06-4ffd-8257-0c6db2870681" name="Changes" comment="" />
+=======
+    <list default="true" id="cebfae04-ea58-4f37-a3e8-63250d8da1a1" name="Changes" comment="" />
+>>>>>>> adbee72be4480ef701557f7b006ccb01cbfc27a9
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -10,11 +14,20 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+<<<<<<< HEAD
   <component name="ProjectId" id="2DUjz60c6aP8So3B6bfaQSISpYI" />
+=======
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2DUGj9K5nFcTKuPGJKEUNCTDpak" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+>>>>>>> adbee72be4480ef701557f7b006ccb01cbfc27a9
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+<<<<<<< HEAD
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
@@ -28,6 +41,23 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1660760817261</updated>
+=======
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/Users/권민정/GitHub/Com-Study/com_project"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="cebfae04-ea58-4f37-a3e8-63250d8da1a1" name="Changes" comment="" />
+      <created>1660746387082</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1660746387082</updated>
+>>>>>>> adbee72be4480ef701557f7b006ccb01cbfc27a9
     </task>
     <servers />
   </component>
