@@ -1,0 +1,3 @@
+[submodule "django+kbcomstudy_me"]
+	path = django+kbcomstudy_me
+	url = https://github.com/dukwoo/Com-Study.git
