@@ -1,2 +1,3 @@
 # Com-Study
-KB국민은행 소프트웨어 경진대회 참가 팀 프로젝트
+팀명: dialog-ing
+일기라는 의미의 diary와 기록하다는 의미의 log, 대화라는 의미의 dialog를 합쳐 dialoging이라는 팀명을 결정하였다.
