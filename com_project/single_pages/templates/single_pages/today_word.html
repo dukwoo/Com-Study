@@ -73,18 +73,7 @@
 
         var checkCookie = getCookie("mycookie");
 
-        /*var title = "{{comment_001.title}}";
-        let t_array = []; t_array.push(title);
-
-        var all;
-
-        for (let i=0; i<5; i++){
-            all += t_array[i];
-        }
-
-        let detail = "{{comment_001.detail}}";
-        let d_array = []; d_array.push(detail);
-        */
+        //var title = "{{comment_001.title}}";
 
         // 쿠키가 생성되고 계속 장면이 고정되서 나오도록 설정
         if (checkCookie == 'popupEnd') {
@@ -92,9 +81,6 @@
             document.getElementById("today_list").style.display="none";
             document.getElementById("animal").src = "{% static 'single_pages/images/사자.png' %}";
             document.getElementById("footer").className = 'fixed-bottom';
-
-           // document.getElementById(title).innerHTML(t_array[1]);
-           // document.getElementById(detail).innerHTML(d_array[1]);
 
         } else if (checkCookie == 'popupEnd2') {
             document.getElementById("today_detail").style.display="block";
