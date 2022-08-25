@@ -1,0 +1,49 @@
+<style>
+html,
+body {
+height: 100%;
+}
+
+body {
+display: flex;
+flex-direction: column;
+
+text-align: center;
+background-color: #999;
+margin: 0;
+}
+
+main {
+flex: 1;
+background-color: cornflowerblue;
+}
+
+.image-box {
+    width:340px;
+    height:340px;
+    overflow:hidden;
+    margin:0 auto;
+}
+
+.image-thumbnail {
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+@font-face {
+    font-family: 'ROEHOE-CHAN';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10@1.0/ROEHOE-CHAN.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.col-lg-6 col-md-8 mx-auto {
+  font-family: 'ROEHOE-CHAN';
+}
+
+#real_img{
+    object-fit: cover;
+}
+
+</style>
