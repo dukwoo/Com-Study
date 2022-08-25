@@ -14,9 +14,9 @@
                 count = count + 1;}, 500
             );
 
+            //food 하나씩 그림자 지는 이벤트
             let foods = document.getElementsByClassName("food");
 
-            //food 하나씩 그림자 지는 이벤트
             for (let i=0; i<foods.length; i++) {
                 foods[i].onmouseover = function (){
                     this.style.filter = "drop-shadow(5px 5px 5px gold)";

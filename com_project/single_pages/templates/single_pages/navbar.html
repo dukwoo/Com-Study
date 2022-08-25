@@ -46,7 +46,8 @@
         <!--username-->
         {% if user.is_authenticated %}
         <li class="nav-item">
-          <a type="button" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Bottom popover">
+          <a type="button" data-container="body" data-toggle="popover"
+             data-placement="bottom" data-content="<button>'안'</button>">
             <span id="user" style="font-size:22px;"><img src="#"> {{user.username}}</span>
           </a>
         </li>

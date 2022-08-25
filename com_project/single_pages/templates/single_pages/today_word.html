@@ -29,7 +29,19 @@
         const meat = () => {
             document.getElementById("today_detail").style.display="block";
             document.getElementById("today_list").style.display="none";
-            document.getElementById("animal").src = "{% static 'single_pages/images/사자.png' %}";
+
+            //사자 말하는 이벤트
+            window.onload = function(){
+                let count = 0;
+                let image = document.getElementById("animal");
+                let frames = ["{% static 'single_pages/images/사자.png' %}", "{% static 'single_pages/images/사자말.png' %}"];
+
+                setInterval (function () {
+                    image.src = frames[count = count%frames.length];
+                    count = count + 1;}, 500
+                );
+            }
+
             document.getElementById("footer").className = 'fixed-bottom';
 
             setCookie("mycookie",'popupEnd',1);
@@ -38,7 +50,19 @@
         const fish = () => {
             document.getElementById("today_detail").style.display="block";
             document.getElementById("today_list").style.display="none";
-            document.getElementById("animal").src = "{% static 'single_pages/images/수달.png' %}";
+
+            //수달 말하는 이벤트
+            window.onload = function() {
+                let count = 0;
+                let image = document.getElementById("animal");
+                let frames = ["{% static 'single_pages/images/수달.png' %}", "{% static 'single_pages/images/수달말.png' %}"];
+
+                setInterval (function () {
+                    image.src = frames[count = count%frames.length];
+                    count = count + 1;}, 500
+                );
+            }
+
             document.getElementById("footer").className = 'fixed-bottom';
 
             setCookie("mycookie",'popupEnd2',1);
@@ -47,7 +71,19 @@
         const apple = () => {
             document.getElementById("today_detail").style.display="block";
             document.getElementById("today_list").style.display="none";
-            document.getElementById("animal").src = "{% static 'single_pages/images/너구리.png' %}";
+
+            window.onload = function(){
+                //너구리 말하는 이벤트
+                let count = 0;
+                let image = document.getElementById("animal");
+                let frames = ["{% static 'single_pages/images/너구리.png' %}", "{% static 'single_pages/images/너구리말.png' %}"];
+
+                setInterval (function () {
+                    image.src = frames[count = count%frames.length];
+                    count = count + 1;}, 500
+                );
+            }
+
             document.getElementById("footer").className = 'fixed-bottom';
 
             setCookie("mycookie",'popupEnd3',1);
@@ -56,7 +92,19 @@
         const banana = () => {
             document.getElementById("today_detail").style.display="block";
             document.getElementById("today_list").style.display="none";
-            document.getElementById("animal").src = "{% static 'single_pages/images/원숭이.png' %}";
+
+            window.onload = function(){
+                //원숭이 말하는 이벤트
+                let count = 0;
+                let image = document.getElementById("animal");
+                let frames = ["{% static 'single_pages/images/원숭이.png' %}", "{% static 'single_pages/images/원숭이말.png' %}"];
+
+                setInterval (function () {
+                    image.src = frames[count = count%frames.length];
+                    count = count + 1;}, 500
+                );
+            }
+
             document.getElementById("footer").className = 'fixed-bottom';
 
             setCookie("mycookie",'popupEnd4',1);
@@ -65,7 +113,19 @@
         const clam = () => {
             document.getElementById("today_detail").style.display="block";
             document.getElementById("today_list").style.display="none";
-            document.getElementById("animal").src = "{% static 'single_pages/images/수달.png' %}";
+
+            window.onload = function(){
+                 //수달 말하는 이벤트
+                let count = 0;
+                let image = document.getElementById("animal");
+                let frames = ["{% static 'single_pages/images/수달.png' %}", "{% static 'single_pages/images/수달말.png' %}"];
+
+                setInterval (function () {
+                    image.src = frames[count = count%frames.length];
+                    count = count + 1;}, 500
+                );
+            }
+
             document.getElementById("footer").className = 'fixed-bottom';
 
             setCookie("mycookie",'popupEnd5',1);
@@ -79,31 +139,89 @@
         if (checkCookie == 'popupEnd') {
             document.getElementById("today_detail").style.display="block";
             document.getElementById("today_list").style.display="none";
-            document.getElementById("animal").src = "{% static 'single_pages/images/사자.png' %}";
+
+            //사자 말하는 이벤트
+            window.onload = function(){
+                let count = 0;
+                let image = document.getElementById("animal");
+                let frames = ["{% static 'single_pages/images/사자.png' %}", "{% static 'single_pages/images/사자말.png' %}"];
+
+                setInterval (function () {
+                    image.src = frames[count = count%frames.length];
+                    count = count + 1;}, 500
+                );
+            }
+
             document.getElementById("footer").className = 'fixed-bottom';
 
         } else if (checkCookie == 'popupEnd2') {
             document.getElementById("today_detail").style.display="block";
             document.getElementById("today_list").style.display="none";
-            document.getElementById("animal").src = "{% static 'single_pages/images/수달.png' %}";
+
+            //수달 말하는 이벤트
+            window.onload = function() {
+                let count = 0;
+                let image = document.getElementById("animal");
+                let frames = ["{% static 'single_pages/images/수달.png' %}", "{% static 'single_pages/images/수달말.png' %}"];
+
+                setInterval (function () {
+                    image.src = frames[count = count%frames.length];
+                    count = count + 1;}, 500
+                );
+            }
+
             document.getElementById("footer").className = 'fixed-bottom';
 
         } else if (checkCookie == 'popupEnd3') {
             document.getElementById("today_detail").style.display="block";
             document.getElementById("today_list").style.display="none";
-            document.getElementById("animal").src = "{% static 'single_pages/images/너구리.png' %}";
+
+            window.onload = function(){
+                //너구리 말하는 이벤트
+                let count = 0;
+                let image = document.getElementById("animal");
+                let frames = ["{% static 'single_pages/images/너구리.png' %}", "{% static 'single_pages/images/너구리말.png' %}"];
+
+                setInterval (function () {
+                    image.src = frames[count = count%frames.length];
+                    count = count + 1;}, 500
+                );
+            }
+
             document.getElementById("footer").className = 'fixed-bottom';
 
         } else if (checkCookie == 'popupEnd4') {
             document.getElementById("today_detail").style.display="block";
             document.getElementById("today_list").style.display="none";
-            document.getElementById("animal").src = "{% static 'single_pages/images/원숭이.png' %}";
+
+            window.onload = function(){
+                //원숭이 말하는 이벤트
+                let count = 0;
+                let image = document.getElementById("animal");
+                let frames = ["{% static 'single_pages/images/원숭이.png' %}", "{% static 'single_pages/images/원숭이말.png' %}"];
+
+                setInterval (function () {
+                    image.src = frames[count = count%frames.length];
+                    count = count + 1;}, 500
+                );
+            }
             document.getElementById("footer").className = 'fixed-bottom';
 
         } else if (checkCookie == 'popupEnd5') {
             document.getElementById("today_detail").style.display="block";
             document.getElementById("today_list").style.display="none";
-            document.getElementById("animal").src = "{% static 'single_pages/images/수달.png' %}";
+
+            window.onload = function(){
+                 //수달 말하는 이벤트
+                let count = 0;
+                let image = document.getElementById("animal");
+                let frames = ["{% static 'single_pages/images/수달.png' %}", "{% static 'single_pages/images/수달말.png' %}"];
+
+                setInterval (function () {
+                    image.src = frames[count = count%frames.length];
+                    count = count + 1;}, 500
+                );
+            }
             document.getElementById("footer").className = 'fixed-bottom';
 
         } else {

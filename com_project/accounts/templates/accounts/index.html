@@ -12,9 +12,19 @@
 {% endblock %}
 
 {% block main_area %}
-    <h1>마이페이지</h1>
+
+    {% if user.is_authenticated %}
+    <h1>{{user.username}}</h1>
 
     <div class="fixed-bottom">
         {% include 'single_pages/footer.html' %}
     </div>
+    {% else %}
+    <h1>로그인이 필요한 서비스 입니다.</h1>
+
+    <div class="fixed-bottom">
+        {% include 'single_pages/footer.html' %}
+    </div>
+    {% endif %}
+
 {% endblock %}

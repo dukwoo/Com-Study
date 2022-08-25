@@ -37,8 +37,17 @@
   <!--css-->
   <link rel="stylesheet" href="{% static 'single_pages/css/today_word.css' %}" media="screen">
 
+  <!--jQuery-->
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
+
   {% block tw_script %}
   {% endblock %}
+
+  <script>
+    $(function () {
+      $('[data-toggle="popover"]').popover()
+    })
+  </script>
 
 </head>
 <body>
