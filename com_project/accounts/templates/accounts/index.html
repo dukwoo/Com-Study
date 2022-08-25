@@ -2,7 +2,13 @@
 {% load static %}
 
 {% block c_title %}
-    <title>마이페이지</title>
+    <title>
+        {% if user.is_authenticated %}
+            {{user.username}}님의 페이지
+        {% else %}
+            마이페이지
+        {% endif %}
+    </title>
 {% endblock %}
 
 {% block main_area %}

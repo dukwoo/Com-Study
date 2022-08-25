@@ -2,6 +2,7 @@ from django.contrib import auth
 from django.contrib.auth import authenticate
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
+from django.views.decorators.csrf import csrf_exempt
 
 # Create your views here.
 # 회원가입
@@ -18,6 +19,7 @@ def signup(request):
     return render(request, 'accounts/signup.html')
 
 # 로그인
+@csrf_exempt
 def login(request):
     if request.method == 'POST':
         username = request.POST['username']
@@ -25,7 +27,7 @@ def login(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             auth.login(request, user)
-            return redirect('accounts/index')    #로그인 후 이동할 페이지
+            return redirect('/accounts/mypage')    #로그인 후 이동할 페이지
         else:
             return render(request, 'accounts/login.html', {'error': 'username or password is incorrect.'})
     else:
@@ -35,7 +37,7 @@ def login(request):
 # 로그아웃
 def logout(request):
     auth.logout(request)
-    return redirect('accounts/home')
+    return redirect('/')
 
 # home
 def home(request):
