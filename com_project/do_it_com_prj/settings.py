@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'single_pages',
     'accounts',
     'diary',
+    'chatbot',
 ]
 
 MIDDLEWARE = [

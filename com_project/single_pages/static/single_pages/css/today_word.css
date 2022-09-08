@@ -1,8 +1,10 @@
 body {
-    background-color:#fcefef;
+    width:100%;
+    height:100%;
+    background-image: url("../images/background.png");
+    background-size:cover;
 }
 
 * {
     font-family: 'Jua', sans-serif;
 }
-

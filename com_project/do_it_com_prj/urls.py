@@ -24,6 +24,7 @@ urlpatterns = [
     path('', include('single_pages.urls')),
     path('accounts/', include('accounts.urls')),
     path('diary/', include('diary.urls')),
+    path('chatbot/',include('chatbot.urls')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
