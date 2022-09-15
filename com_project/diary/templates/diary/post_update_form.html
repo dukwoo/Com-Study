@@ -49,13 +49,13 @@
     </style>
 </head>
 <body class="d-flex flex-column min-vh-100">
-    <div class="container">
+    <div class="container" style="background-color:#FED999; border:4px solid #753e39;">
         <div class="mt-5 text-center" style="font-size:35px;"> 포스트 수정하기 </div>
         <hr/>
         <div class="col-6" style="margin:0 auto;">
         <form method="post" enctype="multipart/form-data">{% csrf_token %}
         {{ form | crispy }}
-        <button type="submit" class="btn btn-light btn-block my-5" style="font-size:20px;"> 저장 </button>
+        <button type="submit" class="btn btn-light btn-block my-5" style="font-size:25px; background-color:#E59D98; color:white;"> 저장 </button>
         </form>
         </div>
     </div>
