@@ -1,16 +1,21 @@
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.http import JsonResponse, HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.decorators.csrf import csrf_exempt
 
 import json
 import numpy as np
 import tensorflow as tf
+from django.views.generic import CreateView
 from tensorflow import keras
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense, Embedding, GlobalAveragePooling1D
 from tensorflow.keras.preprocessing.text import Tokenizer
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 from sklearn.preprocessing import LabelEncoder
+
+from diary.models import Post
+
 
 def chatbot(request):
 
@@ -139,4 +144,20 @@ def chatanswer(request):
     context['anstext'] = txt1
 
     return JsonResponse(context, content_type="application/json")
+
+class PostCreate(LoginRequiredMixin, UserPassesTestMixin, CreateView):
+    model = Post
+    fields = ['title','content']
+
+    def test_func(self):
+        return self.request.user.is_superuser or self.request.user.is_staff
+
+    def form_valid(self, form):
+        current_user = self.request.user
+        if current_user.is_authenticated and (current_user.is_staff or current_user.is_superuser):
+            form.instance.manufacturer = current_user
+            response = super(PostCreate,self).form_valid(form)
+
+        else:
+            return redirect('/chatbot/')
 

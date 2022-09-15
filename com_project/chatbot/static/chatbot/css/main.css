@@ -72,3 +72,24 @@
 
 }
 
+#loading {
+       position:absolute;
+       background-color:rgba(0, 0, 0, 0.5);
+       top: 0;
+       width: 800px;
+       height: 613px;
+       color: white;
+       text-align:center;
+       font-size: 40px;
+}
+
+#save_end {
+       position:absolute;
+       background-color:rgba(0, 0, 0, 0.5);
+       top: 0;
+       width: 800px;
+       height: 613px;
+       color: white;
+       text-align:center;
+       font-size: 40px;
+}

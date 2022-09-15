@@ -1,0 +1,21 @@
+{% extends 'single_pages/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block c_title %}
+    <title>일기 작성</title>
+{% endblock %}
+
+{% block main_area %}
+    <div style="width:1000px;">
+        <div style="text-align:center;">
+            <h1>Register New Good</h1>
+            <hr />
+            <form method="post" enctype="multipart/form-data">{% csrf_token %}
+                {{form | crispy}}
+                <br/>
+                <button type="submit" class="btn btn-outline-dark float-right mb-3">Register</button>
+            </form>
+            {{ form.media }}
+        </div>
+    </div>
+{% endblock %}

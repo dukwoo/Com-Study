@@ -1,7 +1,7 @@
 {% extends 'single_pages/base.html' %}
 {% load static %}
 
-<!--한글은 따로 해야 한다.. 핳-->
+<!--한글은 따로 해야 한다..-->
 
 {% block c_title %}
     <title>너구리와 대화</title>
@@ -20,7 +20,7 @@
 {% block main_area %}
 
     <section id="start">
-        <div class="sec" style="width: 1000px; height: 400px; margin: auto; margin-top: 100px; white-space:nowrap;">
+        <div class="sec" style="display:block; width: 1000px; height: 400px; margin: auto; margin-top: 100px; white-space:nowrap;">
             <div class="card" style="width: 270px; display:inline-block; margin-right:40px;">
                 <img src="{% static 'single_pages/images/수달.png' %}" class="card-img-top" style="background-color:#FFC5C4" alt="수달">
                 <div class="card-body" style="background-color:#FFC5C4; text-align:center">
@@ -63,30 +63,41 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-9">
-                    <div class="chatback">
-                        <div class="chatheader">
+                    <div class="chatback" id="cbox" style="position:relative;">
+                        <div class="chatheader" id="cheader">
                             사자 와의 대화창
                         </div>
 
                         <div id="chatbox"> </div>
 
-                        <div class="chatfooter">
+                        <div class="chatfooter" id="cfooter">
                             <input type="text" id="chattext" placeholder=" 채팅을 입력하세요" />
                             <a class="btn" style="background-color:#80756E" type="button" onclick="javascript:sendAsk()">전송</a>
+                        </div>
+                        <div id="loading" style="display:none;">
+                            <div style="margin-top:250px;">일기 완성중 . . .</div>
+                        </div>
+                        <div id="save_end" style="display:none;">
+                            <div style="margin-top:200px;">일기 작성완료!</div>
+                            <a class="d_btn btn btn-light" type="button" href="/diary/" style="font-size:20px; padding: 5px 55px 5px 55px;">
+                                일기 보러가기
+                            </a><br/>
+                            <a class="d_btn btn btn-light" type="button" href="/" style="font-size:20px; padding: 5px 85px 5px 85px;">
+                                홈으로
+                            </a>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-3">
                     <div class="btn_animal">
-                        <a type="button" class="btn btn-lg" style="background-color:#fed999">저장하고 제출</a><br/><br/>
-                        <a type="button" class="btn btn-lg" style="background-color:#fed999">처음부터 채팅</a>
+                        <a type="button" class="btn btn-lg" onclick="javascript:save()" style="background-color:#fed999">저장하고 제출</a><br/><br/>
+                        <a type="button" class="btn btn-lg" onclick="javascript:start_lion()" style="background-color:#fed999">처음부터 채팅</a>
                     </div>
                     <br/><br/><br/><br/>
                     <img src="{% static 'single_pages/images/사자.png' %}" width="400px" height="400px" style="text-align:center"/>
                 </div>
             </div>
         </div>
-
     </section>
 
 {% endblock %}
@@ -114,8 +125,13 @@
         var xhr;
 
         function start_otter() {
+            document.getElementById("loading").style.display = "none";
+            document.getElementById("save_end").style.display= "none";
+
             document.getElementById("main").style.display = "block";
             document.getElementById("start").style.display = "none";
+
+            document.getElementById("chatbox").innerHTML = "";
 
             var strurl = "chattrain";
             alert(strurl);
@@ -135,9 +151,15 @@
             xhr.send(null);
         }
 
+        /* 주요 */
         function start_lion() {
+            document.getElementById("loading").style.display = "none";
+            document.getElementById("save_end").style.display= "none";
+
             document.getElementById("main").style.display = "block";
             document.getElementById("start").style.display = "none";
+
+            document.getElementById("chatbox").innerHTML = "";
 
             var strurl = "chattrain";
             alert(strurl);
@@ -156,10 +178,25 @@
             xhr.setRequestHeader("X-CSRFToken", csrftoken);
             xhr.send(null);
         }
+
+        function save() {
+            document.getElementById("loading").style.display = "block";
+
+            setTimeout(function() {
+                document.getElementById("loading").style.display = "none";
+                document.getElementById("save_end").style.display= "block";
+            }, 3000); //3초 후 함수가 실행됨.
+        }
+
 
         function start_monkey() {
+            document.getElementById("loading").style.display = "none";
+            document.getElementById("save_end").style.display= "none";
+
             document.getElementById("main").style.display = "block";
             document.getElementById("start").style.display = "none";
+
+            document.getElementById("chatbox").innerHTML = "";
 
             var strurl = "chattrain";
             alert(strurl); // 다른 것으로 표현 바꾸기
@@ -180,8 +217,13 @@
         }
 
         function start_racoon() {
+            document.getElementById("loading").style.display = "none";
+            document.getElementById("save_end").style.display= "none";
+
             document.getElementById("main").style.display = "block";
             document.getElementById("start").style.display = "none";
+
+            document.getElementById("chatbox").innerHTML = "";
 
             var strurl = "chattrain";
             alert(strurl); // 다른 것으로 표현 바꾸기
@@ -213,7 +255,7 @@
             document.getElementById("chatbox").innerHTML += msg;
 
             var strurl = "chatanswer?chattext=" + chattext;
-            // alert(strurl); //문구 다른 거로 변경
+            // alert(strurl); //chattext: 사용자, anstext: 답변
             // return false;
 
             xhr = new XMLHttpRequest();
@@ -222,7 +264,7 @@
                     var data = xhr.responseText;
 
                     var obj = JSON.parse(data);
-                    //alert(obj.anstext);
+                    alert(obj.anstext);
 
                     reply = "<div style='margin:15px 0; text-align:left;'><span style='background-color:#fbca56; padding: 5px 8px; border-radius: 3px'>"+ obj.anstext +"</span></div>";
                     document.getElementById("chatbox").innerHTML += reply;
@@ -231,6 +273,7 @@
                     cbox.scrollTop = document.gtElementById("chatbox").scrollHeight;
                 }
             };
+
             xhr.open("GET", strurl);
             xhr.setRequestHeader("X-CSRFToken", csrftoken);
             xhr.send(null);
@@ -238,5 +281,6 @@
             document.getElementById("chattext").value = " ";
             document.getElementById("chattext").focus();
         }
+
     </script>
 {% endblock %}

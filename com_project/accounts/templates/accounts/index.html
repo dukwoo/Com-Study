@@ -14,13 +14,28 @@
 {% block main_area %}
 
     {% if user.is_authenticated %}
-    <h1>{{user.username}}</h1>
+    <h1 style="margin: 10px 0px 0px 25%; color: #753e39">마이페이지</h1>
+    <div id="back" style="background-color:white;
+    padding: 20px 30px 30px; margin: 20px 25% 15%;">
+        <div class="row">
+            <div class="col-6">
+                <img src="{% static '/single_pages/images/너구리.png' %}" width="300rem" alt="default_profile">
+            </div>
+            <div class="col-6" style="padding: 30px;">
+                <br><br>
+                <h2 style="color: #753e39">ID: {{user.username}}</h2><br>
+                <p><a href="/diary/" style="color: #f1bdba;">작성된 일기 보러가기</a></p>
+                <p><a href="/accounts/logout/" style="color: #7899f1;">로그아웃</a></p>
+            </div>
+        </div>
+    </div>
+
 
     <div class="fixed-bottom">
         {% include 'single_pages/footer.html' %}
     </div>
     {% else %}
-    <h1>로그인이 필요한 서비스 입니다.</h1>
+    <h1 style="text-align: center">로그인이 필요한 서비스 입니다.</h1>
 
     <div class="fixed-bottom">
         {% include 'single_pages/footer.html' %}

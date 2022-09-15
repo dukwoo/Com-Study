@@ -6,27 +6,34 @@
 {% endblock %}
 
 {% block main_area %}
-<div class="wrapper" style="text-align: center;">
-    <h1>회원가입</h1>
-    <form method="POST">
+<div class="wrapper" style="text-align: center; background-color: #fed999; border: 2px solid #753e39;
+        border-radius: 5px; padding: 30px 30px 50px; margin: 20px 35%">
+    <h1 style="color: #753e39;">회원가입</h1>
+    <form method="POST" style="color: #753e39;">
         {% csrf_token %}
-        아이디: <br>
-        <input name="username" type="text">
+        아이디<br>
+        <input name="username" type="text"
+            style="background-color: #753e39; color: white; border: none;">
         <br>
-        비밀번호: <br>
-        <input name="password1" type="password">
+        비밀번호<br>
+        <input name="password1" type="password"
+            style="background-color: #753e39; color: white; border: none;">
         <br>
-        비밀번호 확인: <br>
-        <input name="password2" type="password">
+        비밀번호 확인<br>
+        <input name="password2" type="password"
+            style="background-color: #753e39; color: white; border: none;">
         <br>
-        이메일: <br>
-        <input name="email" type="email">
+        이메일<br>
+        <input name="email" type="email"
+            style="background-color: #753e39; color: white; border: none;">
         <br><br>
-        <input type="submit" class="btn btn-primary" value="Sign Up">
+        <input type="submit" class="btn btn-light" value="회원가입"
+    style="color: #753e39; border: 2px solid #753e39;">
     </form>
+    </div>
 </div>
 
-    <div class="fixed-bottom">
+    <div style="bottom: 0; margin-top: 100px;">
         {% include 'single_pages/footer.html' %}
     </div>
 
