@@ -12,88 +12,77 @@
     <link rel="stylesheet" href="{% static 'diary/css/style.css' %}">-->
 {% endblock %}
 
+<body class="d-flex flex-column min-vh-100">
 {% block main_area %}
    {% if user.is_authenticated %}
-        <div id="main">
-            <div id="wrapper">
-              <div class="py-3 container">
-                  <div class="row py-lg-5">
-                    <div class="text-center mx-auto mt-3">
-                      <h1 class="fw-light"> 나의 기록 </h1>
+<div id="wrapper">
+  <div class="py-3 container">
+  </div>
+  <div class="container">
+      <div class="row">
+          <div class="col-1">
+          </div>
+          <div class="col-10">
+              <div class="container mb-5">
+                <div class="row row-cols-md-3 g-3 justify-content-center">
+                  {% for p in post_list %}
+                  <div class="card" style="background-color:#FED999;">
+                    <a href="{{ p.get_absolute_url }}">
+                      {% if p.head_image %}
+                        <img src="{{ p.head_image.url }}" class="img-fluid" style="height: 305px;"alt="tree">
+                      {% else %}
+                        <img class="card-img-top" src="https://picsum.photos/seed/{{ p.id }}/200/200" alt="random_image">
+                      {% endif %}
+                    </a>
+                    <div class="card-body">
+                      <p class="card-text text-center" style="font-size:20px;">{{ p.created_at | date:"Y. m. d" }}</p>
                     </div>
                   </div>
+                  {% endfor %}
+                </div>
               </div>
               <div class="container">
                   <div class="row">
-                      <div class="col-1">
-                      </div>
-                      <div class="col-10">
-                          <div class="container">
-                              <div class="row">
-                                  <div class="col mb-5 float-left">
-                                    {% if is_paginated %}
-                                    <ul class="pagination justify content-center mb-1">
-                                      {% if page_obj.has_next %}
-                                        <li class="page-item">
-                                            <a class="page-link" href="?page={{ page_obj.next_page_number }}">  Previous  </a>
-                                        </li>
-                                      {% else %}
-                                        <li class="page-item disabled">
-                                            <a class="page-link" href="#">  Previous  </a>
-                                        </li>
-                                      {% endif %}
-
-                                      {% if page_obj.has_previous %}
-                                      <li class="page-item">
-                                          <a class="page-link" href="?page={{ page_obj.previous_page_number }}">  Next  </a>
-                                      </li>
-                                      {% else %}
-                                      <li class="page-item disabled">
-                                            <a class="page-link" href="#">  Next  </a>
-                                      </li>
-                                      {% endif %}
-                                    </ul>
-                                    {% endif %}
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="container mb-5">
-                            <div class="row row-cols-md-3 g-3 justify-content-center">
-                              {% for p in post_list %}
-                              <div class="container">
-                                <a href="{{ p.get_absolute_url }}">
-                                  {% if p.head_image %}
-                                  <img src="{{ p.head_image.url }}" class="img-fluid" style="height: 14.4vw;"alt="tree">
-                                  {% else %}
-                                  <img class="card-img-top" src="https://picsum.photos/seed/{{ p.id }}/200/200" alt="random_image">
-                                  {% endif %}
+                      <div class="col mb-5">
+                        {% if is_paginated %}
+                        <ul class="pagination mb-1 justify-content-center">
+                          {% if page_obj.has_previous %}
+                          <li class="page-item">
+                              <a type="button" class="btn btn-light" style="background-color:#FED999;" href="?page={{ page_obj.previous_page_number }}">
+                                  <span style="font-size:25px;">이전</span>
+                              </a>
+                          </li>
+                          {% endif %}
+                            {% if page_obj.has_next %}
+                            <li class="page-item">
+                                <a type="button" class="btn btn-light" style="background-color:#FED999;" href="?page={{ page_obj.next_page_number }}">
+                                    <span style="font-size:25px;">다음</span>
                                 </a>
-                                <div class="img-overlay">
-                                  <p class="card-text mb-2">{{ p.created_at | date:"Y. m. d" }}</p>
-                                </div>
-                              </div>
-                              {% endfor %}
-                            </div>
-                          </div>
-                      </div>
-                      <div class="col-1">
-
+                            </li>
+                            {% endif %}
+                        </ul>
+                        {% endif %}
                       </div>
                   </div>
-                      </div>
-                  </div>
-            </div>
+              </div>
+          </div>
+          <div class="col-1">
+          </div>
+      </div>
+  </div>
+</div>
+</body>
 
-            <div class="footer">
-                {% include 'single_pages/footer.html' %}
-            </div>
-        {% else %}
-            <h1>로그인이 필요한 서비스 입니다.</h1>
+<footer class="py-3 mt-auto">
+    {% include 'single_pages/footer.html' %}
+</footer>
+{% else %}
+<h1>로그인이 필요한 서비스 입니다.</h1>
 
-            <div class="footer fixed-bottom">
-                {% include 'single_pages/footer.html' %}
-            </div>
-        {% endif %}
+<footer class="py-3 mt-auto">
+    {% include 'single_pages/footer.html' %}
+</footer>
+{% endif %}
 
        <!-- <script>
             var current = new Date(); // 현재 시간 값을 가진 Date 객체 생성
