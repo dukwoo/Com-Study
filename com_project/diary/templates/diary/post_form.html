@@ -1,4 +1,5 @@
 {% extends 'single_pages/base.html' %}
+{% load static %}
 {% load crispy_forms_tags %}
 
 {% block c_title %}
@@ -6,16 +7,14 @@
 {% endblock %}
 
 {% block main_area %}
-    <div style="width:1000px;">
-        <div style="text-align:center;">
-            <h1>Register New Good</h1>
-            <hr />
+    <div class="container my-5" style="background-color:#FED999; border:4px solid #753e39;">
+        <div class="mt-5 text-center" style="font-size:35px;"> 일기 작성하기 </div>
+        <hr/>
+        <div class="col-6" style="margin:0 auto;">
             <form method="post" enctype="multipart/form-data">{% csrf_token %}
-                {{form | crispy}}
-                <br/>
-                <button type="submit" class="btn btn-outline-dark float-right mb-3">Register</button>
+                {{ form | crispy }}
+                <button type="submit" class="btn btn-light btn-block my-5" style="font-size:25px; background-color:#E59D98; color:white;"> 저장 </button>
             </form>
-            {{ form.media }}
         </div>
     </div>
 {% endblock %}

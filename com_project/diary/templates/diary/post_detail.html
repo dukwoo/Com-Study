@@ -21,76 +21,117 @@
 
       <!--font-aweasome-->
       <script src="https://kit.fontawesome.com/4352f6a6dc.js" crossorigin="anonymous"></script>
+
+    <style>
+        body {
+            height:100%;
+        }
+        #wrapper {
+            min-height: 100%;
+            position: relative;
+            padding-bottom: 100px;
+        }
+        .d-flex mt-5 {
+            margin: 100px;
+        }
+        .container center‑block {
+            display: block;
+            margin‑left: auto;
+            margin‑right: auto;
+        }
+        .content {
+            height: 550px;
+            padding-left: 25px;
+            padding-right: 10px;
+            padding-bottom: 20px;
+        }
+        #diary_textarea {
+            width: auto;
+            background: url({%static 'single_pages/images/diary_text.jpg' %});
+            background-position: center;
+            border-radius: 20px;
+        }
+        /* 스크롤바 설정*/
+        .content::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        /* 스크롤바 막대 설정*/
+        .content::-webkit-scrollbar-thumb {
+            height: 17%;
+            background-color:#A6A6A6;
+        /* 스크롤바 둥글게 설정    */
+            border-radius: 10px;
+        }
+
+        /* 스크롤바 뒷 배경 설정*/
+        /*.content::-webkit-scrollbar-track {
+            background-color: white;
+        }*/
+    </style>
 </head>
+{% include 'single_pages/navbar.html' %}
 <body>
-<div id="main">
-    <div class="position-relative overflow-hidden text-center bg-light">
-    {% if post.head_image %}
-    <img class="img-fluid" style="height: 26vw;" id="real_img" src="{{ post.head_image.url }}" alt="tree">
-    {% else %}
-    <div class="w-100" style="h-auto;">
-        <img class="img-fluid" src="https://picsum.photos/seed/{{ post.id }}/1920/500" alt="..." />
-    </div>
-    {% endif %}
-    </div>
 <!-- <div class="product-device shadow-sm d-none d-md-block"></div>
 <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div> -->
     <!-- Page content-->
-    <div id="wrapper">
-    <div class="container mt-5">
-        <div class="row d-flex justify-content-center">
-            <div class="col-md-3  col-lg-2">
-            </div>
-            <div class="col-md-6 col-lg-7 ">
-                <!-- Post content-->
-                <!-- Post header-->
-                <div class="mb-4">
-                    <!-- Post title-->
-                    <h1 class="fw-bolder mb-1">{{ post.title }}</h1>
-                    <!-- Post meta content-->
-                    <div class="text-muted fst-italic mb-2">{{ post.created_at }}</div>
-                </div>
-                <!-- Post content-->
-                <div class="mb-3">{{ post.content | linebreaksbr }}</div>
-                <div class="m-3 text-center">
-                    <div class="row m-5">
-                        <div class="col">
-                            <a href="/diary/">
-                                <button type="button" class="btn btn-light"> 목록으로 </button>
-                            </a>
-                        </div>
-                        <div class="col">
-                            <a href="/diary/update_post/{{ post.pk}}/">
-                                <button type="button" class="btn btn-light"> 수정하기 </button>
-                            </a>
-                        </div>
+    <!-- Left and right controls -->
+<div id="wrapper">
+    <div class="container mt-3">
+        <div class="col-md-9 col-lg-11" style="background-color:#FED999; border:4px solid #753e39; float: none; margin: 0 auto;">
+            <div class="d-flex mt-5 mb-5">
+                <div class="d-flex align-content-center flex-wrap text-center flex-shrink-1">
+                    <div class="col">
+                        <div class="date mb-5" style="font-size: 35px;">날짜: {{ post.created_at | date:"Y. m. d" }}</div>
                     </div>
-
+                    <div class="col">
+                    <div class="img_box" style="width:300px; height:300px; background-color:#E59D98; margin:auto; font-size:50px;">Image</div>
+                    </div>
+                </div>
+                <div class="ml-3 mr-1 w-100" id="diary_textarea" style="border:4px solid #753e39;">
+                    <!-- Post title-->
+                    <div style="width:550px; height:auto; display:inline-block;">
+                        <div class="truncate-text p-2 m-3" style="font-size:35px; overflow:hidden; white-space:nowrap;">제목: {{ post.title }}</div>
+                    </div>
+                    <div class="content" style="overflow:auto; word-break:break-all; font-size:25px; color:#4C4C4C;">{{ post.content | linebreaksbr }}</div>
                 </div>
             </div>
-            <div class="col-md 3 col-lg-2">
-
+            <div class="row m-4 text-center">
+                <div class="col">
+                    <a href="/diary/">
+                        <button type="button" class="btn btn-light px-3" style="font-size:25px; color:white; background-color:#E59D98;"> 목록으로 </button>
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="/diary/update_post/{{ post.pk}}/">
+                        <button type="button" class="btn btn-light px-3" data-bs-toggle="modal"
+                                data-bs-target="exampleModal" style="font-size:25px; color:white; background-color:#E59D98;"> 수정하기 </button>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
-    </div>
 </div>
+</body>
 
 <div class="footer">
     {% include 'single_pages/footer.html' %}
 </div>
 
-<script>
-var current = new Date(); // 현재 시간 값을 가진 Date 객체 생성
-if(current.getHours() >= 6 && current.getHours() < 18) { // 06시-18시
-    document.body.style.backgroundColor = "#FCEFEF";
-    document.body.style.color = "black";
-    }
-else {
-    document.body.style.backgroundColor = "#012538"; // 18시-24시, 0시-6시
-    document.body.style.color = "white";
-    }
-</script>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        이대로 저장할건가요?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">수정 계속하기</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" aria-label="Close">저장</button>
+      </div>
+    </div>
+  </div>
+</div>
 
   <!--bootstrap.js-->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

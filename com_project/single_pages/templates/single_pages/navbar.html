@@ -20,51 +20,93 @@
             <i class="fas fa-lg fa-comment" style="font-size:25px"></i>&nbsp;&nbsp;
           </a>
         </li>
-        <!--chatbot-->
-        <li class="nav-item">
-          <a class="nav-link" href="/chatbot" title="챗봇 기능">
-            <i class="fas fa-lg fa-robot" style="font-size:25px"></i>&nbsp;&nbsp;
-          </a>
-        </li>
-        <!--일기목록-->
-        <li class="nav-item dropdown">
-          <a class="nav-link" href="/diary" title="일기 목록">
-            <i class="fas fa-lg fa-calendar" style="font-size:25px"></i>&nbsp;&nbsp;
-          </a>
-        </li>
-        <!--마이페이지-->
-        <li class="nav-item">
-          <a class="nav-link" href="/accounts/mypage" title="마이페이지">
-            <i class="fas fa-lg fa-smile" style="font-size:25px"></i>&nbsp;&nbsp;&nbsp;
-          </a>
-        </li>
 
-        <!--username-->
         {% if user.is_authenticated %}
-        <li class="nav-item">
-            <a type="button" href="/accounts/logout" style="text-decoration-line:none; color:black;">
-              <span id="user" style="font-size:22px;" onmouseover="mv()" onmouseout="mvout()">{{user.username}}</span>
+          <!--chatbot-->
+          <li class="nav-item">
+            <a class="nav-link" href="/chatbot" title="챗봇 기능">
+              <i class="fas fa-lg fa-robot" style="font-size:25px"></i>&nbsp;&nbsp;
             </a>
-        </li>
+          </li>
+          <!--일기목록-->
+          <li class="nav-item dropdown">
+            <a class="nav-link" href="/diary" title="일기 목록">
+              <i class="fas fa-lg fa-calendar" style="font-size:25px"></i>&nbsp;&nbsp;
+            </a>
+          </li>
+          <!--마이페이지-->
+          <li class="nav-item">
+            <a class="nav-link" href="/accounts/mypage" title="마이페이지">
+              <i class="fas fa-lg fa-smile" style="font-size:25px"></i>&nbsp;&nbsp;&nbsp;
+            </a>
+          </li>
+          <!--username-->
+          <li class="nav-item">
+              <a type="button" href="/accounts/logout" style="text-decoration-line:none; color:black;">
+                <span id="user" style="font-size:22px;" onmouseover="mv()" onmouseout="mvout()">{{user.username}}</span>
+              </a>
+          </li>
+
         {% else %}
-        <li class="nav-item">
-          <a type="button" href="/accounts/login" style="text-decoration-line: none; color:black;">
-            <span id="log_user" style="font-size:22px;"> Log-In</span>
-          </a>
-        </li>
+          <!--chatbot-->
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="modal" data-target="#loginModal" title="챗봇 기능">
+              <i class="fas fa-lg fa-robot" style="font-size:25px"></i>&nbsp;&nbsp;
+            </a>
+          </li>
+          <!--일기목록-->
+          <li class="nav-item dropdown">
+            <a class="nav-link" data-toggle="modal" data-target="#loginModal" title="일기 목록">
+              <i class="fas fa-lg fa-calendar" style="font-size:25px"></i>&nbsp;&nbsp;
+            </a>
+          </li>
+          <!--마이페이지-->
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="modal" data-target="#loginModal" title="마이페이지">
+              <i class="fas fa-lg fa-smile" style="font-size:25px"></i>&nbsp;&nbsp;&nbsp;
+            </a>
+          </li>
+          <!--username-->
+          <li class="nav-item">
+            <a type="button" href="/accounts/login" style="text-decoration-line: none; color:black;">
+              <span id="log_user" style="font-size:22px;"> Log-In</span>
+            </a>
+          </li>
         {% endif %}
       </ul>
     </div>
   </nav>
 
-<script>
-  function mv() {
-    let id = document.getElementById("user");
-    id.innerHTML = "Log-Out";
-  }
+  <!--로그인 모달창-->
+  <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="container">
+            <div class="row text-center">
+              <div class="col-lg-8">
+                <h5 style="text-align:center; margin-top:50px;">로그인이 필요한 페이지 입니다!</h5><br/>
+                 <a type="button" class="btn btn-outline-dark" href="/accounts/login">로그인 페이지로 이동</a>
+                &nbsp;&nbsp;<button type="button" class="btn btn-outline-danger" data-dismiss="modal">닫기</button>
+              </div>
+              <div class="col-lg-3">
+                <img src="{% static 'single_pages/images/너굴실패.png' %}" style="width:150px; height:150px" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-  function mvout() {
-    let id = document.getElementById("user");
-    id.innerHTML = "{{ user.username }}";
-  }
-</script>
+  <script>
+    function mv() {
+      let id = document.getElementById("user");
+      id.innerHTML = "Log-Out";
+    }
+
+    function mvout() {
+      let id = document.getElementById("user");
+      id.innerHTML = "{{ user.username }}";
+    }
+  </script>

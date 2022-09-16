@@ -159,5 +159,5 @@ class PostCreate(LoginRequiredMixin, UserPassesTestMixin, CreateView):
             response = super(PostCreate,self).form_valid(form)
 
         else:
-            return redirect('/chatbot/')
+            return redirect('/diary/')
 

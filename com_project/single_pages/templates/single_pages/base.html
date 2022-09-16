@@ -57,6 +57,213 @@
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
 
+
+    <!--chatbot_diary 전환.js-->
+    <script>
+        function getCookie(name) {
+            var cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                var cookies = document.cookie.split(';');
+                for (var i = 0; i < cookies.length; i++) {
+                    var cookie = jQuery.trim(cookies[i]);
+                    // Does this cookie string begin with the name we want?
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+
+        var csrftoken = getCookie('csrftoken');
+
+        var xhr;
+
+        function start_otter() {
+            document.getElementById("loading").style.display = "none";
+            document.getElementById("save_end").style.display= "none";
+
+            document.getElementById("main").style.display = "block";
+            document.getElementById("start").style.display = "none";
+
+            document.getElementById("chatbox").innerHTML = "";
+
+            var strurl = "chattrain";
+            alert(strurl);
+            // return false;
+
+            xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4) {
+                    var data = xhr.responseText;
+
+                    var obj = JSON.parse(data);
+                    alert(obj.result);
+                }
+            };
+            xhr.open("GET", strurl);
+            xhr.setRequestHeader("X-CSRFToken", csrftoken);
+            xhr.send(null);
+        }
+
+        /* 주요 */
+        function start_lion() {
+            document.getElementById("loading").style.display = "none";
+            document.getElementById("save_end").style.display= "none";
+
+            document.getElementById("main").style.display = "block";
+            document.getElementById("start").style.display = "none";
+
+            document.getElementById("chatbox").innerHTML = "";
+
+            var strurl = "chattrain";
+            alert(strurl);
+            // return false;
+
+            xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4) {
+                    var data = xhr.responseText;
+
+                    var obj = JSON.parse(data);
+                    alert(obj.result);
+                }
+            };
+            xhr.open("GET", strurl);
+            xhr.setRequestHeader("X-CSRFToken", csrftoken);
+            xhr.send(null);
+        }
+
+        function start_monkey() {
+            document.getElementById("loading").style.display = "none";
+            document.getElementById("save_end").style.display= "none";
+
+            document.getElementById("main").style.display = "block";
+            document.getElementById("start").style.display = "none";
+
+            document.getElementById("chatbox").innerHTML = "";
+
+            var strurl = "chattrain";
+            alert(strurl); // 다른 것으로 표현 바꾸기
+            // return false;
+
+            xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4) {
+                    var data = xhr.responseText;
+
+                    var obj = JSON.parse(data);
+                    alert(obj.result);
+                }
+            };
+            xhr.open("GET", strurl);
+            xhr.setRequestHeader("X-CSRFToken", csrftoken);
+            xhr.send(null);
+        }
+
+        function start_racoon() {
+            document.getElementById("loading").style.display = "none";
+            document.getElementById("save_end").style.display= "none";
+
+            document.getElementById("main").style.display = "block";
+            document.getElementById("start").style.display = "none";
+
+            document.getElementById("chatbox").innerHTML = "";
+
+            var strurl = "chattrain";
+            alert(strurl); // 다른 것으로 표현 바꾸기
+            // return false;
+
+            xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4) {
+                    var data = xhr.responseText;
+
+                    var obj = JSON.parse(data);
+                    alert(obj.result);
+                }
+            };
+            xhr.open("GET", strurl);
+            xhr.setRequestHeader("X-CSRFToken", csrftoken);
+            xhr.send(null);
+        }
+
+        /* 크롬 */
+        function saveToFile_Chrome(fileName, content) {
+            var blob = new Blob([content], { type: 'text/plain' });
+            objURL = window.URL.createObjectURL(blob);
+
+            if (window.__Xr_objURL_forCreatingFile__) {
+                window.URL.revokeObjectURL(window.__Xr_objURL_forCreatingFile__);
+            }
+            window.__Xr_objURL_forCreatingFile__ = objURL;
+            var a = document.createElement('a');
+            a.download = fileName;
+            a.href = objURL;
+            a.click();
+        }
+
+        var txt = "";
+        function sendAsk() {
+            let chattext = document.getElementById("chattext").value;
+
+            if (chattext == "") {
+                document.getElementById("chattext").focus();
+                return false;
+            }
+
+            msg = "<div style='margin:15px 110px; text-align:right;'><span style='background-color:#ece6cf; padding: 5px 8px; border-radius: 3px'>" + chattext + "</span></div>";
+            document.getElementById("chatbox").innerHTML += msg;
+
+            var strurl = "chatanswer?chattext=" + chattext;
+            //alert(strurl); //chattext: 사용자, anstext: 답변
+            // return false;
+
+            xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4) {
+                    var data = xhr.responseText;
+
+                    var obj = JSON.parse(data);
+                    //alert(obj.anstext);
+
+                    reply = "<div style='margin:15px 0; text-align:left;'><span style='background-color:#fbca56; padding: 5px 8px; border-radius: 3px'>"+ obj.anstext +"</span></div>";
+                    document.getElementById("chatbox").innerHTML += reply;
+
+                    let cbox = document.getElementById("chatbox");
+                    cbox.scrollTop = document.getElementById("chatbox").scrollHeight;
+                }
+            };
+
+            xhr.open("GET", strurl);
+            xhr.setRequestHeader("X-CSRFToken", csrftoken);
+            xhr.send(null);
+
+            document.getElementById("chattext").value = " ";
+            document.getElementById("chattext").focus();
+
+            txt += chattext;
+        }
+
+        function save() {
+            document.getElementById("loading").style.display = "block";
+
+            setTimeout(function() {
+                document.getElementById("loading").style.display = "none";
+                document.getElementById("save_end").style.display= "block";
+            }, 3000); //3초 후 함수가 실행됨.
+
+            var date = new Date();
+            var fileName = "일기" + date.getFullYear() + (date.getMonth()+1) + ".txt";
+
+            /*document.getElementById("title").value = "일기";
+            document.getElementById("content").value = txt;
+
+            saveToFile_Chrome(fileName, txt);*/
+        }
+    </script>
+
   {% block tw_js %}
   {% endblock %}
 
