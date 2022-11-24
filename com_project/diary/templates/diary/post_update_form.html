@@ -35,9 +35,8 @@
         .container{
             position: absolute;
             left:20%;
-            top:15%;
+            top:50%;
         }
-
         .footer {
             position: absolute;
             left: 0;
@@ -49,8 +48,9 @@
     </style>
 </head>
 <body>
+<div id="wrap">
     <div class="container" style="background-color:#FED999; border:4px solid #753e39;">
-        <div class="mt-5 text-center" style="font-size:35px;"> 일기 수정하기 </div>
+        <div class="mt-5 text-center" style="font-size:35px;"> 포스트 수정하기 </div>
         <hr/>
         <div class="col-6" style="margin:0 auto;">
         <form method="post" enctype="multipart/form-data">{% csrf_token %}
@@ -59,6 +59,7 @@
         </form>
         </div>
     </div>
+</div>
 </body>
 
 <div class="footer">

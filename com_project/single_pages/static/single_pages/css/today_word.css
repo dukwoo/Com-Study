@@ -8,3 +8,7 @@ body {
 * {
     font-family: 'Jua', sans-serif;
 }
+
+@media (max-width: 400px) {
+
+}
